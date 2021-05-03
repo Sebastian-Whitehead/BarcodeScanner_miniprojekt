@@ -45,12 +45,12 @@ public class MainActivity extends AppCompatActivity {
         codeScanner();
         // System.out.println("The Scan List:" + scanList); !!TEST CODE!!
 
-        // Check if this is the first time the MainActivity has been run called since program launch
+        // Check if this is the first time the MainActivity has been run/called since program launch
         if(!checkFirstTime){
             scanList = getIntent().getStringArrayListExtra("scanList");
             System.out.println("Scan We've gotten the scan from another place!");
         } else {
-            // Check to see if the array list is = null if so then do not attempt to retrieve it [Prevents Calling ".add" on null object]
+            // Check to see if the array list is = null, if so then do not attempt to retrieve it [Prevents Calling ".add" on null object]
             if (getArrayList("key") != null) {
                 scanList = getArrayList("key");
             }
@@ -58,10 +58,10 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    // Quickly checks if camera permissions have already been granted if not then start Permissions Request Activity
+    // Quickly checks if camera permissions have already been granted, if not then start Permissions Request Activity
     public void checkSelfPermissions() {
         Intent permissionsRequest = new Intent(this, PermissionsActivity.class);
-        int permission = ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA);       // Retrieves permission status for the inbuilt android CAMERA
+        int permission = ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA);       // Retrieves permission status for the built-in android CAMERA
         if (permission != PackageManager.PERMISSION_GRANTED) {
             startActivity(permissionsRequest);
         }
@@ -105,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onResume() {         //when project resumes from paused state
+    protected void onResume() {         // When project resumes from paused state
         super.onResume();
         mCodeScanner.startPreview();
         TextView textView = (TextView)findViewById(R.id.output_textView);
@@ -114,12 +114,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onPause() {  // when program is paused / in background --> release resources
+    protected void onPause() {  // When program is paused / in background --> release resources
         mCodeScanner.releaseResources();
         super.onPause();
     }
 
-    public void sendMessage(View view) {        // Transfer Array list to "InfoScreen Activity
+    public void sendMessage(View view) {        // Transfer Array list to "InfoScreen Activity"
         Intent infoScreen = new Intent(this, InfoScreen.class);
         infoScreen.putStringArrayListExtra("scanList", scanList);
         startActivity(infoScreen);

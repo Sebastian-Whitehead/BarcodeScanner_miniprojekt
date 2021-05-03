@@ -32,7 +32,7 @@ public class PermissionsActivity extends AppCompatActivity {
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {   //Expandable method for when program checks the granted permission
         switch (requestCode) {              // Expandable switch for multiple request codes.
             case CAMERA_REQUEST_CODE:
-                if (grantResults.length == 0 || grantResults[0] != PackageManager.PERMISSION_GRANTED) { // If permission has not been granted promt the user with a toast and request permission again after two seconds
+                if (grantResults.length == 0 || grantResults[0] != PackageManager.PERMISSION_GRANTED) { // If permission has not been granted prompt the user with a toast and request permission again after two seconds
                     Toast.makeText(this, "You must grant camera permission in order to use the app",Toast.LENGTH_SHORT).show();
                     new Handler().postDelayed(new Runnable() {
                         @Override

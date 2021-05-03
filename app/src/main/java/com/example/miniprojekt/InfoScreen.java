@@ -25,7 +25,7 @@ public class InfoScreen extends AppCompatActivity {
         setContentView(R.layout.activity_info_screen);
 
         listView = findViewById(R.id.listView);                             // Initialize list in reference to the XML formatting
-        scanList = getIntent().getStringArrayListExtra("scanList");   // Retrieved the passed scan array list
+        scanList = getIntent().getStringArrayListExtra("scanList");   // Retrieve the passed array list of scans
 
         //Adapt array list too be compatible with list view
         adapter = new ArrayAdapter(InfoScreen.this, android.R.layout.simple_list_item_1, scanList);
@@ -34,7 +34,7 @@ public class InfoScreen extends AppCompatActivity {
         // System.out.println("The Scan List:" + scanList);
     }
 
-    public void sendMessage(View view) {        // Pass array list back too main activity class and switch activities
+    public void sendMessage(View view) {        // Pass array list back to main activity class and switch activities
         Intent scanner = new Intent(this, MainActivity.class);
         scanner.putStringArrayListExtra("scanList", scanList);
         startActivity(scanner);
