@@ -2,9 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.miniprojekt">
 
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
-
-    <!-- Permissions -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" /> <!-- Permissions -->
     <uses-permission android:name="android.permission.CAMERA" />
 
     <application
@@ -14,8 +12,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Miniprojekt">
-
+        <activity android:name=".InfoScreen"
+            android:screenOrientation="sensorPortrait"></activity>
         <activity
+            android:screenOrientation="sensorPortrait"
             android:name=".PermissionsActivity"
             android:label="@string/title_activity_permissions">
             <intent-filter>
@@ -24,7 +24,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"
+            android:screenOrientation="sensorPortrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
